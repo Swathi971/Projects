@@ -1,4 +1,6 @@
 # End-to-End Web Application Deployment
-* Create the VPC with a name my-vpc
+#### Create the VPC with a name my-vpc
 ![img.png](img.png)
 ![img_1.png](img_1.png)
+Enable the DNS Hostname:
+* 
