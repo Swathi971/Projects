@@ -1,3 +1,4 @@
 # End-to-End Web Application Deployment
-## Create an instance
-git 
+* Create the VPC with a name my-vpc
+![img.png](img.png)
+![img_1.png](img_1.png)
