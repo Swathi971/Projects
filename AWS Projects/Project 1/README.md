@@ -5,5 +5,5 @@
 
 Enable the DNS Hostname:
 Edit VPC settings- Enable DNS hostname- Save
-![img_2.png](img_2.png)
+![img_3.png](img_3.png)
 
