@@ -2,8 +2,10 @@
 
 #### Create the VPC with a name `my-vpc`
 
-<img alt="img.png" heig
-ht="200" src="img.png" width="600"/>
+
+![img.png](img.png)
+![img_1.png](img_1.png)
+
 
 
 **Enable the DNS Hostname:**  
