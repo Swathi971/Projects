@@ -5,5 +5,5 @@
 
 Now got to VPC settings- Enable DNS Hostnames- Save
 
-![img_1.png](img_1.png)
+![img.png](.github/images/img_2.png)
 
