@@ -5,8 +5,8 @@
 
    Now go to VPC settings- Enable DNS Hostnames- Save
 
-![img.png](.github/images/img_3.png)
+![img_1.png](.github/images/img_4.png)
 
 #### Create subnets
-![img.png](img.png)
+![img.png](.github/images/img_3.png)
 
