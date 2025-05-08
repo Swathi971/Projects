@@ -20,12 +20,21 @@ Select the my-vpc-public-subnet1- Actions- Edit subnet settings- select Enable a
 
 ##### Create Route tables: 
 I need two route tables; one is for private, and another is for public subnet. 
+###### creating route table for public subnet:
+
 <img src=".github/images/img_6.png" alt="routetable" width="50%"/>
 
 ##### Adding public subnets to the route table: 
 <img src=".github/images/img_7.png" alt="subnet association" width="50%"/>
 
 <img src=".github/images/img_8.png" alt="adding public subnets" width="50%"/>
+
+###### Creating route table for private subnet:
+<img src=".github/images/img_9.png" alt="adding public subnets" width="40%"/>
+
+##### Adding private subnets to the route table: 
+<img src=".github/images/img_10.png" alt="adding public subnets" width="40%"/>
+
 
 
 
