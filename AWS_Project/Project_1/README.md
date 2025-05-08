@@ -35,6 +35,9 @@ I need two route tables; one is for private, and another is for public subnet.
 ##### Adding private subnets to the route table: 
 <img src=".github/images/img_10.png" alt="adding public subnets" width="40%"/>
 
+##### Creating an Internet gateway:
+<img src=".github/images/img_11.png" alt="adding public subnets" width="50%"/>
+
 
 
 
