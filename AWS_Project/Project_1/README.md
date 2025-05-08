@@ -12,6 +12,7 @@ Now go to VPC settings - Enable DNS Hostnames - Save
 
       
 Created 2 public subnets in us east n.verginea 1a and 2 private subnets in u.s east n.verginea 1b
-![img.png](img.png)
+<img src=".github/images/img_3.png" alt="Subnets" width="700"/>
+![img.png](.github/images/img_3.png)
 
 
