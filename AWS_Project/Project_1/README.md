@@ -18,7 +18,15 @@ Created 2 public subnets in us east n.verginea 1a and 2 private subnets in u.s e
 Select the my-vpc-public-subnet1- Actions- Edit subnet settings- select Enable auto-assign public IPv4 address. 
 <img src=".github/images/img_5.png" alt="Subnets" width="50%"/>
 
-<img src=".github/images/img_6.png" alt="Subnets" width="50%"/>
+##### Create Route tables: 
+I need two route tables; one is for private, and another is for public subnet. 
+<img src=".github/images/img_6.png" alt="routetable" width="50%"/>
+
+##### Adding public subnets to the route table: 
+<img src=".github/images/img_7.png" alt="subnet association" width="50%"/>
+
+<img src=".github/images/img_8.png" alt="adding public subnets" width="50%"/>
+
 
 
 
