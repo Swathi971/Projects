@@ -30,13 +30,24 @@ I need two route tables; one is for private, and another is for public subnet.
 <img src=".github/images/img_8.png" alt="adding public subnets" width="50%"/>
 
 ###### Creating route table for private subnet:
-<img src=".github/images/img_9.png" alt="adding public subnets" width="40%"/>
+<img src=".github/images/img_9.png" alt="adding public subnets" width="50%"/>
 
 ##### Adding private subnets to the route table: 
-<img src=".github/images/img_10.png" alt="adding public subnets" width="40%"/>
+<img src=".github/images/img_10.png" alt="adding public subnets" width="50%"/>
 
 ##### Creating an Internet gateway:
 <img src=".github/images/img_11.png" alt="adding public subnets" width="50%"/>
+
+##### Attach the created internet gateway to the VPC: 
+<img src=".github/images/img_12.png" alt="attaching igw" width="50%"/>
+
+<img src=".github/images/img_13.png" alt="attaching igw" width="50%"/>
+
+##### Configuring internet gateway to the public subnet:  
+<img src=".github/images/img_14.png" alt="configuring" width="50%"/>
+
+<img src=".github/images/img_15.png" alt="configuring" width="50%"/>
+
 
 
 
