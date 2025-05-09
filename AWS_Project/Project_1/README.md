@@ -55,10 +55,10 @@ I need two route tables; one is for private, and another is for public subnet.
      Instance type- t2.micro
      key pair- choose the key pair
      Storage (volumes) 1 volume(s) - 8 GiB
-##### Select the VPC and public subnet in Network settings:
+###### Select the VPC and public subnet in Network settings:
 <img src=".github/images/img_16.png" alt="configuring" width="50%"/>
-##### Create Security group:
 
+###### Create the Security group:
 <img src=".github/images/img_17.png" alt="configuring" width="50%"/>
 
 
