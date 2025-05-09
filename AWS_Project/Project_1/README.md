@@ -55,6 +55,11 @@ I need two route tables; one is for private, and another is for public subnet.
 hdhd looks lik this
 ````
 hello hii
+----
+namste
+
+namste
+
 
 
 
