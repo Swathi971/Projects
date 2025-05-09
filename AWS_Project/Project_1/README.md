@@ -48,10 +48,20 @@ I need two route tables; one is for private, and another is for public subnet.
 
 <img src=".github/images/img_15.png" alt="configuring" width="50%"/>
 
+***
 #### Launch an Ec2 instance
      Name- My-Webapp 
      AMI- Ubuntu Server 24.04 LTS (HVM),EBS General Purpose (SSD) Volume Type
-____________________
+     Instance type- t2.micro
+     key pair- choose the key pair
+  Select the VPC and public subnet in Network settings:
+
+<img src=".github/images/img_16.png" alt="configuring" width="50%"/>
+  Create Security group:
+
+<img src=".github/images/img_17.png" alt="configuring" width="50%"/>
+
+
 
 
 
