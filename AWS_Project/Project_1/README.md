@@ -51,14 +51,7 @@ I need two route tables; one is for private, and another is for public subnet.
 #### Launch an Ec2 instance
      Name- My-Webapp 
      AMI- Ubuntu Server 24.04 LTS (HVM),EBS General Purpose (SSD) Volume Type
-````commandline
-hdhd looks lik this
-````
-hello hii
-----
-namste
-
-namste
+*** hwh
 
 
 
