@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1731ea0b-b857-4098-8110-3afa307e7d35" name="Changes" comment="" />
+    <list default="true" id="1731ea0b-b857-4098-8110-3afa307e7d35" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AWS_Project/Project_1/.github/images/img_16.png" beforeDir="false" afterPath="$PROJECT_DIR$/AWS_Project/Project_1/.github/images/img_16.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AWS_Project/Project_1/.github/images/img_17.png" beforeDir="false" afterPath="$PROJECT_DIR$/AWS_Project/Project_1/.github/images/img_17.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AWS_Project/Project_1/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/AWS_Project/Project_1/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +31,9 @@
     &quot;accountId&quot;: &quot;ea0638bd-1917-4507-8a4e-7dee77fffa01&quot;
   }
 }</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/AWS_Project/Project_1/README.md" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
