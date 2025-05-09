@@ -48,6 +48,9 @@ I need two route tables; one is for private, and another is for public subnet.
 
 <img src=".github/images/img_15.png" alt="configuring" width="50%"/>
 
+#### Launch an Ec2 instance
+     Name- My-Webapp 
+     AMI- Ubuntu Server 24.04 LTS (HVM),EBS General Purpose (SSD) Volume Type
 
 
 
