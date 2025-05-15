@@ -76,6 +76,20 @@ root@ip-11-0-7-135:~# apt install apache2
 root@ip-11-0-7-135:~# systemctl start apache2  
 root@ip-11-0-7-135:~# systemctl enable apache2  
 ```
+* Connect the local machine to GitHub using an SSH key:
+````commandline
+root@ip-11-0-0-206:~# cd .ssh/
+root@ip-11-0-0-206:~/.ssh# ls
+authorized_keys
+````
+* I generated an SSH key pair (id_ed25519.pub), added the public key to
+my GitHub account
+```commandline
+root@ip-11-0-0-206:~/.ssh# ssh-keygen
+root@ip-11-0-0-206:~/.ssh# ls
+authorized_keys  id_ed25519 id_ed25519.pub
+root@ip-11-0-0-206:~/.ssh# cat id_ed25519.pub
+```
 
 
 
