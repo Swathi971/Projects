@@ -59,7 +59,25 @@ I need two route tables; one is for private, and another is for public subnet.
 <img src=".github/images/img_16.png" alt="configuring" width="50%"/>
 
 ###### Create the Security group:
-<img src=".github/images/img_17.png" alt="configuring" width="50%"/>
+<img src=".github/images/img_17.png" alt="configuring" width="50%"/
+***
+##### Connecting Ec2 instance using SSH
+* Switch to root user:
+````commandline
+ubuntu@ip-11-0-7-135:~$ sudo su -
+````
+* Update the instance:
+```commandline
+root@ip-11-0-7-135:~# apt update 
+```
+* Install the web server
+```commandline
+root@ip-11-0-7-135:~# apt install apache2 
+root@ip-11-0-7-135:~# systemctl start apache2  
+root@ip-11-0-7-135:~# systemctl enable apache2  
+```
+
+
 
 
 
