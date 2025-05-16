@@ -82,14 +82,19 @@ root@ip-11-0-0-206:~# cd .ssh/
 root@ip-11-0-0-206:~/.ssh# ls
 authorized_keys
 ````
-* I generated an SSH key pair (id_ed25519.pub), added the public key to
-my GitHub account
+* Generate the SSH key pair (id_ed25519.pub), add the public key to
+GitHub account
 ```commandline
 root@ip-11-0-0-206:~/.ssh# ssh-keygen
 root@ip-11-0-0-206:~/.ssh# ls
 authorized_keys  id_ed25519 id_ed25519.pub
 root@ip-11-0-0-206:~/.ssh# cat id_ed25519.pub
 ```
+* Clone a repository using the SSH URL:
+```commandline
+root@ip-11-0-11-57:~# git clone git@github.com:Swathi971/Projects.git
+```
+
 
 
 
