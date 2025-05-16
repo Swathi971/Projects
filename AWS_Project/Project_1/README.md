@@ -76,6 +76,10 @@ root@ip-11-0-7-135:~# apt install apache2
 root@ip-11-0-7-135:~# systemctl start apache2  
 root@ip-11-0-7-135:~# systemctl enable apache2  
 ```
+* Install Git:
+```commandline
+root@ip-11-0-11-57:~# apt install git
+```
 * Connect the local machine to GitHub using an SSH key:
 ````commandline
 root@ip-11-0-0-206:~# cd .ssh/
@@ -94,6 +98,49 @@ root@ip-11-0-0-206:~/.ssh# cat id_ed25519.pub
 ```commandline
 root@ip-11-0-11-57:~# git clone git@github.com:Swathi971/Projects.git
 ```
+* Go to Projects folder:
+```commandline
+root@ip-11-0-11-57:~# ls
+Projects  snap
+root@ip-11-0-11-57:~# cd Projects/
+root@ip-11-0-11-57:~/Projects# git pull
+root@ip-11-0-11-57:~/Projects# ls
+AWS_Project  README.md  startbootstrap-agency-gh-pages.zip
+```
+* Install the unzip package using Ubuntu's package manager (apt):
+```commandline
+root@ip-11-0-11-57:~/Projects# apt install unzip
+```
+*  Extract the contents of the file startbootstrap-agency-gh-pages.zip into the current directory:
+```commandline
+root@ip-11-0-11-57:~/Projects# unzip startbootstrap-agency-gh-pages.zip
+```
+* The folder startbootstrap-agency-gh-pages is the extracted source code of an application.
+```commandline
+root@ip-11-0-11-57:~/Projects# ls
+AWS_Project  README.md  startbootstrap-agency-gh-pages  startbootstrap-agency-gh-pages.zip
+```
+* To rename that folder to MyWebApp, use this command:
+```commandline
+root@ip-11-0-11-57:~/Projects# mv startbootstrap-agency-gh-pages MyWebApp
+```
+* After renaming, our directory will look like:
+```commandline
+root@ip-11-0-11-57:~/Projects# ls
+AWS_Project  MyWebApp  README.md  startbootstrap-agency-gh-pages.zip
+```
+* Go to inside the renamed application folder MyWebApp, and it contains the following:
+```commandline
+root@ip-11-0-11-57:~/Projects# cd MyWebApp
+root@ip-11-0-11-57:~/Projects/MyWebApp# ls
+assets  css  index.html  js
+```
+  index.html is the main source code file for a static website
+
+
+
+
+
 
 
 
