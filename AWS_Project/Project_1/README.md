@@ -176,6 +176,7 @@ ____
 1. Buy a Domain name from Hostinger
 2. Create a hosted zone
 <img src=".github/images/img_19.png" alt="webapp" width="50%"/>
+
 3. Update DNS Settings:
 *  Create an A record:
 ```commandline
