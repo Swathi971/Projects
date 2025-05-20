@@ -185,6 +185,7 @@ ____
    Value: your EC2 public IP
 ```
 <img src=".github/images/img_21.png" alt="DNS records" width="50%"/>
+
 ##### Access the App:
    Now http://www.swathi-webapp.site can be opened in the browser.
 
