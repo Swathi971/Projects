@@ -177,14 +177,15 @@ ____
 2. Create a hosted zone
 <img src=".github/images/img_19.png" alt="webapp" width="50%"/>
 3. Update DNS Settings:
-<img src=".github/images/img_20.png" alt="webapp" width="50%"/>
-
-  *  Create an A record:
+*  Create an A record:
 ```commandline
    Name: www
    Type: A
    Value: your EC2 public IP
 ```
+
+<img src=".github/images/img_20.png" alt="webapp" width="50%"/>
+
 <img src=".github/images/img_21.png" alt="DNS records" width="50%"/>
 
 ##### Access the App:
