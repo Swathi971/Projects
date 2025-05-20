@@ -178,6 +178,7 @@ ____
 <img src=".github/images/img_19.png" alt="webapp" width="50%"/>
 3. Update DNS Settings:
 <img src=".github/images/img_20.png" alt="webapp" width="50%"/>
+
    Create an A record:
 ```commandline
    Name: www
