@@ -150,7 +150,7 @@ ls -la /var/www/html/
 ##### This shows the current path where the application (source code) is located:
 ```commandline
 pwd
-# Output: /root/Demo/mywebapp
+###### Output: /root/Demo/mywebapp
 ```
 * To make the app accessible through a web browser, I need to copy all its contents to Apache's default web directory:
 ```commandline
