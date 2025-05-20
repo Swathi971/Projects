@@ -150,7 +150,7 @@ ls -la /var/www/html/
 ##### This shows the current path where the application (source code) is located:
 ```commandline
 pwd
-###### Output: /root/Demo/mywebapp
+# Output: /root/Demo/mywebapp
 ```
 * To make the app accessible through a web browser, I need to copy all its contents to Apache's default web directory:
 ```commandline
@@ -168,7 +168,23 @@ rm /var/www/html/index.html
 ```
   This is used to deploy the web application by moving its source files (like index.html, css/, js/) to the Apache server's default folder, so they become accessible in a browser.
 ##### Result:
-Now, when you access your EC2 public IP in the browser, it will load your application.
+  Now, when you access your EC2 public IP in the browser, it will load your application.
+<img src=".github/images/img_18.png" alt="webapp" width="50%"/>
+____
+##### Accessing App via Domain Instead of IP
+  Steps to use a custom domain:
+1. Buy a Domain name from Hostinger
+2. Create a hosted zone
+<img src=".github/images/img_19.png" alt="webapp" width="50%"/>
+3. Update DNS Settings:
+<img src=".github/images/img_20.png" alt="webapp" width="50%"/>
+Create an A record:
+Name: www
+Type: A
+Value: your EC2 public IP
+4. 
+
+
 
 
 
