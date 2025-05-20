@@ -179,7 +179,7 @@ ____
 3. Update DNS Settings:
 <img src=".github/images/img_20.png" alt="webapp" width="50%"/>
 
-   Create an A record:
+  *  Create an A record:
 ```commandline
    Name: www
    Type: A
