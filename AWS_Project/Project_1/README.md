@@ -178,11 +178,13 @@ ____
 <img src=".github/images/img_19.png" alt="webapp" width="50%"/>
 3. Update DNS Settings:
 <img src=".github/images/img_20.png" alt="webapp" width="50%"/>
-Create an A record:
-Name: www
-Type: A
-Value: your EC2 public IP
-4. 
+   Create an A record:
+   Name: www
+   Type: A
+   Value: your EC2 public IP
+<img src=".github/images/img_21.png" alt="DNS records" width="50%"/>
+4. Access the App:
+   Now http://www.swathi-webapp.site can be opened in the browser.
 
 
 
