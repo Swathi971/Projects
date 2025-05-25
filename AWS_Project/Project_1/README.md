@@ -15,7 +15,7 @@
 <img src=".github/images/img_5.png" alt="Subnets" width="50%"/>
 
 ##### Create Route tables: 
-I need two route tables; one is for private, and another is for public subnet. 
+* Two route tables are needed; one is for private, and another is for public subnet. 
 ###### creating route table for public subnet:
 
 <img src=".github/images/img_6.png" alt="routetable" width="50%"/>
