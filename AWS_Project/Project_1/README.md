@@ -16,7 +16,7 @@
 
 ##### Create Route tables: 
 * Two route tables are needed; one is for private, and another is for public subnet. 
-###### creating route table for public subnet:
+##### creating route table for public subnet:
 
 <img src=".github/images/img_6.png" alt="routetable" width="50%"/>
 
@@ -25,7 +25,7 @@
 
 <img src=".github/images/img_8.png" alt="adding public subnets" width="50%"/>
 
-###### Creating route table for private subnet:
+##### Creating route table for private subnet:
 <img src=".github/images/img_9.png" alt="adding public subnets" width="50%"/>
 
 ##### Adding private subnets to the route table: 
@@ -45,26 +45,26 @@
 <img src=".github/images/img_15.png" alt="configuring" width="50%"/>
 
 ***
-#### Launch an Ec2 instance
+#### Launch Ec2 instance
      Name- My-Webapp 
      AMI- Ubuntu Server 24.04 LTS (HVM),EBS General Purpose (SSD) Volume Type
      Instance type- t2.micro
      key pair- choose the key pair
      Storage (volumes) 1 volume(s) - 8 GiB
-###### Select the VPC and public subnet in Network settings:
+##### Select the VPC and public subnet in Network settings:
 <img src=".github/images/img_16.png" alt="configuring" width="50%"/>
 
-###### Create the Security group:
+##### Create the Security group:
 <img src=".github/images/img_17.png" alt="configuring" width="50%"/
 ***
 ##### Connecting Ec2 instance using SSH
 * Switch to root user:
 ````commandline
-ubuntu@ip-11-0-7-135:~$ sudo su -
+sudo su -
 ````
 * Update the instance:
 ```commandline
-root@ip-11-0-7-135:~# apt update 
+apt update 
 ```
 * Install the web server
 ```commandline
