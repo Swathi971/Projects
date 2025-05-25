@@ -1,7 +1,7 @@
 ## End to end web deployment
 
 #### Create VPC
-<img src=".github/images/img_1.png" alt="Create VPC 1" width="70%"/>  
+<img src=".github/images/img_1.png" alt="Create VPC 1" width="50%"/>  
 
 ##### Enable DNS Hostnames:
 <img src=".github/images/img_4.png" alt="DNS Hostnames" width="500"/>
