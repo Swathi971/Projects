@@ -4,7 +4,7 @@
 <img src=".github/images/img_1.png" alt="Create VPC 1" width="70%"/>  
 
 ##### Enable DNS Hostnames:
-<img src=".github/images/img_4.png" alt="DNS Hostnames" width="700"/>
+<img src=".github/images/img_4.png" alt="DNS Hostnames" width="500"/>
 
 #### Create 4 subnets  
 * Create 2 public subnets in US East N.Verginea 1a and 2 private subnets in US N.Verginea 1b:
