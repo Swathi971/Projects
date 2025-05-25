@@ -122,17 +122,11 @@ unzip startbootstrap-agency-gh-pages.zip
 ```
 * The folder startbootstrap-agency-gh-pages is the extracted source code of an application.
 ```commandline
-root@ip-11-0-11-57:~/Projects# ls
-AWS_Project  README.md  startbootstrap-agency-gh-pages  startbootstrap-agency-gh-pages.zip
+startbootstrap-agency-gh-pages
 ```
-* To rename that folder to MyWebApp, use this command:
+* Rename the folder for clarity:
 ```commandline
-root@ip-11-0-11-57:~/Projects# mv startbootstrap-agency-gh-pages MyWebApp
-```
-* After renaming, our directory will look like:
-```commandline
-root@ip-11-0-11-57:~/Projects# ls
-AWS_Project  MyWebApp  README.md  startbootstrap-agency-gh-pages.zip
+mv startbootstrap-agency-gh-pages MyWebApp
 ```
 * Go inside the renamed application folder MyWebApp, and it contains the following:
 ```commandline
