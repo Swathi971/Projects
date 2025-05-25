@@ -111,15 +111,14 @@ git clone git@github.com:Swathi971/Projects.git
 * Move into the cloned Projects folder:
 ```commandline
 cd Projects/
+```
+* Updates the local repo with the latest changes from GitHub:
+```commandline
 git pull
 ```
-* Unzipped a project template: 
+* Unzip the project template means extracting the contents of the file startbootstrap-agency-gh-pages.zip into the current directory:
 ```commandline
 unzip startbootstrap-agency-gh-pages.zip  
-```
-*  Extract the contents of the file startbootstrap-agency-gh-pages.zip into the current directory:
-```commandline
-root@ip-11-0-11-57:~/Projects# unzip startbootstrap-agency-gh-pages.zip
 ```
 * The folder startbootstrap-agency-gh-pages is the extracted source code of an application.
 ```commandline
