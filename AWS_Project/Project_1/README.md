@@ -128,44 +128,31 @@ startbootstrap-agency-gh-pages
 ```commandline
 mv startbootstrap-agency-gh-pages MyWebApp
 ```
-* Go inside the renamed application folder MyWebApp, and it contains the following:
+* MyWebApp application folder contains the following:
 ```commandline
-root@ip-11-0-11-57:~/Projects# cd MyWebApp
-root@ip-11-0-11-57:~/Projects/MyWebApp# ls
-assets  css  index.html  js
+assets
+css  
+index.html  
+js
 ```
-  index.html is the main source code file for a static website.
 ##### Apache2 Default Directory:
 * Apache2 serves web content from:
 ```commandline
 /var/www/html/
 ```
-##### This lists all files in the Apache default web root directory:
+* Removed the default index.html: 
 ```commandline
-ls -la /var/www/html/
+rm /var/www/html/index.html 
 ```
-##### Current Apache Page
-   The file /var/www/html/index.html is the default Apache welcome page.
-##### This shows the current path where the application (source code) is located:
+* Moved the source code to Apache’s root: 
 ```commandline
-pwd
-# Output: /root/Demo/mywebapp
+mv ./* /var/www/html/ 
 ```
-* To make the app accessible through a web browser, I need to copy all its contents to Apache's default web directory:
+##### Access the Website: 
+ * In a browser, visit: 
 ```commandline
-/var/www/html
-```
-##### Deploy App
-   To show the app in the browser:
-*  Delete the existing index.html in /var/www/html/
-```commandline
-rm /var/www/html/index.html
-```
-*  Moves all files and folders from the current directory to the /var/www/html/ directory:
-```commandline
- mv ./* /var/www/html/
-```
-  This is used to deploy the web application by moving its source files (like index.html, css/, js/) to the Apache server's default folder, so they become accessible in a browser.
+http://<EC2-public-IP>
+``` 
 ##### Result:
   Now, when you access your EC2 public IP in the browser, it will load your application.
 <img src=".github/images/img_18.png" alt="webapp" width="50%"/>
