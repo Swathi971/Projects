@@ -62,6 +62,7 @@ Deploy a static website on an AWS EC2 instance, using Apache web server, and hos
 ***
 
 ##### Connecting Ec2 instance using SSH:
+* Used MobaXterm (PuTTY or terminal can be used) to connect. 
 ##### Switch to root user:
 ````commandline
 sudo su -
