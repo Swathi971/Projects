@@ -64,50 +64,55 @@ Deploy a static website on an AWS EC2 instance, using Apache web server, and hos
 ````commandline
 sudo su -
 ````
-* Update the instance:
+##### Install Required Packages:
+* Updated packages:
 ```commandline
 apt update 
 ```
-* Install the web server
+* Install Apache:
 ```commandline
-root@ip-11-0-7-135:~# apt install apache2 
-root@ip-11-0-7-135:~# systemctl start apache2  
-root@ip-11-0-7-135:~# systemctl enable apache2  
+apt install apache2 
+```
+* Start the apache web server:
+```
+systemctl start apache2  
+```
+* Enable the Apache server to start automatically on system boot:
+```commandline
+systemctl enable apache2
+```
+Confirm if Apache is running or not:
+```commandline
+systemctl status apache2 
 ```
 * Install Git:
 ```commandline
-root@ip-11-0-11-57:~# apt install git
+apt install git
 ```
-* Connect the local machine to GitHub using an SSH key:
-````commandline
-root@ip-11-0-0-206:~# cd .ssh/
-root@ip-11-0-0-206:~/.ssh# ls
-authorized_keys
-````
-* Generate the SSH key pair (id_ed25519.pub), add the public key to
-GitHub account
+* Install unzip tools:
 ```commandline
-root@ip-11-0-0-206:~/.ssh# ssh-keygen
-root@ip-11-0-0-206:~/.ssh# ls
-authorized_keys  id_ed25519 id_ed25519.pub
-root@ip-11-0-0-206:~/.ssh# cat id_ed25519.pub
+apt install unzip
 ```
+#####  Configure GitHub SSH Access:
+* Connect the local machine to GitHub using an SSH key. Now generate the SSH key pair (id_ed25519.pub):
+````commandline
+cd .ssh/  
+ssh-keygen 
+````
+* Add the public key to GitHub → Settings → SSH and GPG keys.
 * Clone a repository using the SSH URL:
 ```commandline
-root@ip-11-0-11-57:~# git clone git@github.com:Swathi971/Projects.git
+git clone git@github.com:Swathi971/Projects.git 
 ```
-* Go to Projects folder:
+##### Deploy the Website:
+* Move into the cloned Projects folder:
 ```commandline
-root@ip-11-0-11-57:~# ls
-Projects  snap
-root@ip-11-0-11-57:~# cd Projects/
-root@ip-11-0-11-57:~/Projects# git pull
-root@ip-11-0-11-57:~/Projects# ls
-AWS_Project  README.md  startbootstrap-agency-gh-pages.zip
+cd Projects/
+git pull
 ```
-* Install the unzip package using Ubuntu's package manager (apt):
+* Unzipped a project template: 
 ```commandline
-root@ip-11-0-11-57:~/Projects# apt install unzip
+unzip startbootstrap-agency-gh-pages.zip  
 ```
 *  Extract the contents of the file startbootstrap-agency-gh-pages.zip into the current directory:
 ```commandline
