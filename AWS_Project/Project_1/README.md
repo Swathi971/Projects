@@ -59,6 +59,7 @@ Deploy a static website on an AWS EC2 instance, using Apache web server, and hos
 ##### Create the Security group:
 
 <img src=".github/images/img_17.png" alt="configuring" width="50%"/
+
 ***
 ##### Connecting Ec2 instance using SSH:
 ##### Switch to root user:
