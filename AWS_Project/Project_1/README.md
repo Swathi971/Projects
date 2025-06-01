@@ -120,7 +120,7 @@ git pull
 ```commandline
 unzip startbootstrap-agency-gh-pages.zip  
 ```
-* The folder startbootstrap-agency-gh-pages is the extracted source code of an application.
+* The folder startbootstrap-agency-gh-pages is the extracted source code of an application:
 ```commandline
 startbootstrap-agency-gh-pages
 ```
