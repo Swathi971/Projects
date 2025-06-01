@@ -146,13 +146,14 @@ rm /var/www/html/index.html
 ```
 * Moved the source code to Apache’s root: 
 ```commandline
-mv ./* /var/www/html/ 
+mv ./* /var/www/html/
 ```
 ##### Access the Website: 
  * In a browser, visit: 
 ```commandline
 http://<EC2-public-IP>
 ``` 
+* Website is live!
 ##### Result:
   Now, when you access your EC2 public IP in the browser, it will load your application.
 <img src=".github/images/img_18.png" alt="webapp" width="50%"/>
@@ -176,7 +177,9 @@ ____
 <img src=".github/images/img_21.png" alt="DNS records" width="50%"/>
 
 ##### Access the App:
-   Now http://www.swathi-webapp.site can be opened in the browser.
+* Now the site is accessible at:  http://www.swathi-webapp.site 
+##### Summary:
+I deployed a static website on AWS EC2 using Apache. I cloned the code from GitHub using SSH, configured the Apache web root, and optionally connected a domain. This project showed my ability to manage cloud resources, web servers, Git, and secure access. 
 
 
 
