@@ -13,7 +13,7 @@ Deploy a static website on an AWS EC2 instance, using Apache web server, and hos
 <img src=".github/images/img_2.png" alt="Subnets" width="70%"/>
 
 ##### Enable public IP address to both public subnets: 
-* Select the my-vpc->public-subnet1-> Actions-> Edit subnet settings-> select Enable auto-assign public IPv4 address. 
+* Select the my-vpc→public-subnet1→ Actions→ Edit subnet settings→ select Enable auto-assign public IPv4 address. 
 <img src=".github/images/img_5.png" alt="Subnets" width="50%"/>
 
 ##### Create Route tables: 
