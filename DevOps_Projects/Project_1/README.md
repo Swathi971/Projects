@@ -85,3 +85,9 @@ chown -R sonarqube:sonarqube /home/sonarqube/sonarqube-9.4.0.54424
 cd sonarqube-9.4.0.54424/bin/linux-x86-64/
 ./sonar.sh start
 ```
+
+#### Installying Trivy
+```commandline
+wget https://github.com/aquasecurity/trivy/releases/download/v0.61.1/trivy_0.61.1_Linux-64bit.deb 
+sudo dpkg -i trivy_0.61.1_Linux-64bit.deb
+```
