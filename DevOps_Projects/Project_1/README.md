@@ -134,6 +134,7 @@ On Jenkins server terminal:
 docker login -u swathi971
 ```
 When it asks for password:
+
 👉 PASTE THE ACCESS TOKEN (not Docker password)
 
 Expected output:
@@ -149,6 +150,7 @@ Even one character mismatch causes this.
    * Password:
   
      👉 Either your Docker Hub password
+  
      👉 OR Access Token (recommended)
 
 🔹 If unsure → delete and recreate the credential.
