@@ -169,7 +169,60 @@ root@admin-server:~# systemctl status docker
 * Username: ```swathi971``` 
 * Password: Access Token
 
-### 10. Dockerfile (Tomcat Deployment)
+### 10. Jenkins Pipeline Job Creation & Build Issue Resolution
+#### Push Jenkinsfile & Dockerfile from VS Code
+* Create a new Jenkinsfile & Dockerfile in VS Code 
+* Commit and push it to GitHub repository (```test-1```)
+
+#### Create Jenkins Pipeline Job
+1. Open Jenkins Dashboard
+2. Click New Item
+3. Enter:
+* Job name: project-1-continuous-integration 
+* Type: Pipeline
+4. Click OK
+
+#### Configure Pipeline from SCM
+_screenhot_
+
+#### Build Failure: Permission Denied (Docker Build & Tag)
+During Build and Tag stage:
+```commandline
+permission denied while trying to connect to the Docker daemon
+```
+##### Root Cause
+* Docker permissions were assigned to Jenkins user 
+* Jenkins service was not restarted 
+* Hence Jenkins could not access Docker socket
+
+### Fix: Restart Jenkins
+#### Restart Jenkins via browser
+```commandline
+http://<EC2-IP>:8080/restart
+```
+### Verify Jenkins Admin Password (If Login Required Again)
+```commandline
+cd /var/lib/jenkins/secrets
+cat initialAdminPassword
+```
+* Username: admin 
+* Password: (copied value)
+
+### Docker Hub Manual Login (Token-Based)
+#### Login using Docker Hub Access Token
+```commandline
+docker login -u swathi971
+```
+When prompted for password:
+
+👉 PASTE DOCKER HUB ACCESS TOKEN (NOT Docker Hub password)
+
+#### Expected Output
+```commandline
+Login Succeeded
+```
+
+### 11. Dockerfile (Tomcat Deployment)
 ```commandline
 FROM tomcat:latest
 RUN cp -r /usr/local/tomcat/webapps.dist /usr/local/tomcat/webapps
