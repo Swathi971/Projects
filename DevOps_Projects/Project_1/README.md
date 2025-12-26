@@ -61,7 +61,7 @@ Starting SonarQube...
 Started SonarQube. 
 ```
 * Port: 9000 (open in security group)
-* Login: admin / admin → old password is admin, change password to 1234
+* Login: admin / admin → old password is admin, change password to ```1234```
 
 _put image here_
 
@@ -137,11 +137,135 @@ sudo dpkg -i trivy_0.61.1_Linux-64bit.deb
 #### Configure Tools
 Manage Jenkins → Tools
 * JDK: Java 17 (Adoptium)
-* Maven: Name = maven
+* Maven: Name = ```maven```
+
+### 7. SonarQube Integration with Jenkins
+_Add 3 screenshots_
+### Create SonarQube Token
+* SonarQube → My Account → Security → Generate Token
+### Add Jenkins Credential
+* Type: Secret Text 
+* ID: ```sonarqube``` 
+* Value: Token
+
+### 8. Docker Permission for Jenkins
+```commandline
+root@admin-server:~# usermod  -aG docker jenkins
+root@admin-server:~# usermod  -aG docker ubuntu 
+root@admin-server:~# cat /etc/group | tail 
+Docker:x:988;jenkins,ubuntu
+root@admin-server:~# systemctl restart docker 
+root@admin-server:~# systemctl status docker 
+```
+### 9. Docker Hub Credentials
+#### Create Docker Hub Access Token
+* Docker Hub → Account Settings → Security 
+* Token name: ```cli``` 
+* Permissions: Read, Write, Delete
+
+#### Add Jenkins Credential
+* Type: Username & Password 
+* ID: ```docker-hub-credentials```
+* Username: ```swathi971``` 
+* Password: Access Token
+
+### 10. Dockerfile (Tomcat Deployment)
+```commandline
+FROM tomcat:latest
+RUN cp -r /usr/local/tomcat/webapps.dist /usr/local/tomcat/webapps
+COPY webapp/target/webapp.war /usr/local/tomcat/webapps
+```
+
+### 11. Jenkinsfile (CI Pipeline)
+```commandline
+pipeline {
+    agent any
+
+    tools {
+        jdk 'java-17'
+        maven 'maven'
+    }
+
+    stages {
+        stage('Git checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Swathi971/test-1.git'
+            }
+        }
+
+        stage('Compile') {
+            steps {
+                sh "mvn compile"
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh "mvn clean install"
+            }
+        }
+
+       stage('codescan') {
+    steps {
+        withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
+            sh '''
+                mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
+                -Dsonar.login=$SONAR_AUTH_TOKEN \
+                -Dsonar.host.url=http://44.202.152.245:9000/
+            '''
+            }
+           }
+       }
 
 
+        stage('Build and tag') {
+            steps {
+                sh "docker build -t swathi971/webapp:1 ."
+            }
+        }
 
+        stage('Docker image scan') {
+            steps {
+                sh "trivy image --format table -o trivy-image-report.html swathi971/webapp:1"
+            }
+        }
 
+        stage('Containersation') {
+            steps {
+                sh '''
+                    docker stop c2 || true
+                    docker rm c2 || true
+                    docker run -it -d --name c2 -p 9003:8080 swathi971/webapp:1
+                '''
+            }
+        }
+
+        stage('Login to Docker Hub') {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                        sh "echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin"
+                    }
+                }
+            }
+        }
+
+        stage('Pushing image to repository') {
+            steps {
+                sh 'docker push swathi971/webapp:1'
+            }
+        }
+    }
+}
+```
+### Final Expected Outputs
+* Jenkins Pipeline: SUCCESS 
+* SonarQube: Code quality report visible 
+* Docker image pushed to Docker Hub 
+* Application accessible at:
+```commandline
+http://<EC2-IP>:9003/webapp
+```
 
 
 
