@@ -1,3 +1,165 @@
+## CI pipeline for a Java application/ Continuous integration of a Java application
+### 1. EC2 Instance Setup (Admin Server)
+* Instance name: admin-server 
+* AMI: Ubuntu 
+* Instance type: t2.medium 
+* Storage: 20 GB 
+* Hostname:
+```commandline
+root@ip-178-65-34-123:~# hostname admin-server
+```
+[Jenkins setup](https://www.jenkins.io/doc/book/installing/linux/)
+
+### 2. Install Java & Jenkins
+#### Script to install Java 17 and Jenkins
+```commandline
+sudo apt update
+sudo apt install openjdk-17-jdk -y
+java -version
+```
+#### Jenkins installation
+```commandline
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt update
+sudo apt install jenkins
+sudo systemctl enable jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+```
+```commandline
+root@admin-server:~# vi script.sh
+```
+
+#### Access Jenkins
+* Open browser → ```http://<Public-IP>:8080```
+* Unlock Jenkins using:
+```commandline
+cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+### 3. SonarQube Installation
+#### Create SonarQube user
+```commandline
+root@admin-server:~# adduser sonarqube  
+root@admin-server:~# apt install unzip -y
+root@admin-server:~# su – sonarqube 
+```
+#### Download & start SonarQube
+```commandline
+sonarqube@admin-server:~ wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.4.0.54424.zip
+sonarqube@admin-server:~$ unzip * 
+sonarqube@admin-server:~$ ls 
+sonarqube-9.4.0.54424.zip sonarqube-9.4.0.54424 
+sonarqube@admin-server:~$ chmod -R 755 /home/sonarqube/sonarqube-9.4.0.54424 
+sonarqube@admin-server:~$ chown -R sonarqube:sonarqube /home/sonarqube/sonarqube-9.4.0.54424 
+sonarqube@admin-server:~$ cd sonarqube-9.4.0.54424/bin/linux-x86-64/ 
+sonarqube@admin-server:~/sonarqube-9.4.0.54424/bin/linux-x86-64$ ./sonar.sh start 
+Starting SonarQube... 
+Started SonarQube. 
+```
+* Port: 9000 (open in security group)
+* Login: admin / admin → old password is admin, change password to 1234
+
+_put image here_
+
+### 4. Install Docker
+```commandline
+root@admin-server:~# vi docker.sh
+```
+```commandline
+#!/bin/bash
+echo << EOF
+"=========================================================="
+"||     Set up Docker's Apt repository ...............   ||"
+"=========================================================="
+EOF
+#Set up Docker's Apt repository
+# Add Docker's official GPG key:
+sudo apt-get update -y
+sudo apt-get install ca-certificates curl gnupg -y
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update -y
+
+echo << EOF
+"=========================================================="
+"||   Docker's Apt repository is completed...........    ||"
+"=========================================================="
+EOF
+
+
+
+echo << EOF
+"=========================================================="
+"||   Install the Docker packages....................    ||"
+"=========================================================="
+EOF
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+
+echo << EOF
+"=========================================================="
+"||   Install is completed ....................    ||"
+"=========================================================="
+EOF
+
+dockerStatus=$(systemctl status docker | awk '/Active/ {print $3}' | tr -d "[()]")
+dockerVersion=$(docker -v | awk '/version/ {print $3}' | tr -d ",")
+
+echo "The Docker status is $dockerStatus"
+echo "The Docker version is $dockerVersion"
+```
+```commandline
+root@admin-server:~# sh docker.sh 
+```
+### 5. Trivy Installation (Image Scanning)
+https://trivy.dev/docs/v0.61/getting-started/installation/#__tabbed_2_2
+
+```commandline
+wget https://github.com/aquasecurity/trivy/releases/download/v0.61.1/trivy_0.61.1_Linux-64bit.deb 
+sudo dpkg -i trivy_0.61.1_Linux-64bit.deb 
+```
+### 6. Jenkins Tool Configuration
+#### Install Plugins
+* Eclipse Temurin Installer 
+* Pipeline Stage View
+
+#### Configure Tools
+Manage Jenkins → Tools
+* JDK: Java 17 (Adoptium)
+* Maven: Name = maven
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Jenkinsfile:
 ```commandline
 pipeline {
