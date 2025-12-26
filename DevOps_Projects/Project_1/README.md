@@ -1,4 +1,16 @@
 ## CI pipeline for a Java application/ Continuous integration of a Java application
+#### 🔧 Tools Used
+* AWS EC2 – Hosting Jenkins, SonarQube, and Docker 
+* Git & GitHub – Source code version control 
+* Jenkins – CI pipeline automation 
+* Java (JDK 17) – Application development 
+* Apache Maven – Build and dependency management 
+* SonarQube – Code quality analysis 
+* Docker – Containerization 
+* Apache Tomcat – Application server 
+* Trivy – Docker image vulnerability scanning 
+* Docker Hub – Image repository
+
 ### 1. EC2 Instance Setup (Admin Server)
 * Instance name: admin-server 
 * AMI: Ubuntu 
@@ -141,9 +153,9 @@ Manage Jenkins → Tools
 
 ### 7. SonarQube Integration with Jenkins
 _Add 3 screenshots_
-### Create SonarQube Token
+#### Create SonarQube Token
 * SonarQube → My Account → Security → Generate Token
-### Add Jenkins Credential
+#### Add Jenkins Credential
 * Type: Secret Text 
 * ID: ```sonarqube``` 
 * Value: Token
