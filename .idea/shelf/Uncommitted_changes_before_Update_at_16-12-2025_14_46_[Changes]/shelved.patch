@@ -1,0 +1,13 @@
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Projects\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.md b/README.md
+--- a/README.md	(revision 8b365d35def4b1fe7436c94e60379640be81abc5)
++++ b/README.md	(date 1765876511151)
+@@ -1,1 +1,1 @@
+-Projects
++# Projects
