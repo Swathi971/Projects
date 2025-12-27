@@ -190,8 +190,8 @@ root@admin-server:~# systemctl status docker
 1. Open Jenkins Dashboard
 2. Click New Item
 3. Enter:
-* Job name: project-1-continuous-integration 
-* Type: Pipeline
+   * Job name: project-1-continuous-integration 
+   * Type: Pipeline
 4. Click OK
 
 #### Configure Pipeline from SCM
@@ -207,12 +207,12 @@ permission denied while trying to connect to the Docker daemon
 * Jenkins service was not restarted 
 * Hence Jenkins could not access Docker socket
 
-### Fix: Restart Jenkins
-#### Restart Jenkins via browser
+#### Fix: Restart Jenkins
+##### Restart Jenkins via browser
 ```commandline
 http://<EC2-IP>:8080/restart
 ```
-### Verify Jenkins Admin Password (If Login Required Again)
+#### Verify Jenkins Admin Password (If Login Required Again)
 ```commandline
 cd /var/lib/jenkins/secrets
 cat initialAdminPassword
@@ -220,8 +220,8 @@ cat initialAdminPassword
 * Username: admin 
 * Password: (copied value)
 
-### Docker Hub Manual Login (Token-Based)
-#### Login using Docker Hub Access Token
+#### Docker Hub Manual Login (Token-Based)
+##### Login using Docker Hub Access Token
 ```commandline
 docker login -u swathi971
 ```
@@ -229,7 +229,7 @@ When prompted for password:
 
 👉 PASTE DOCKER HUB ACCESS TOKEN (NOT Docker Hub password)
 
-#### Expected Output
+##### Expected Output
 ```commandline
 Login Succeeded
 ```
