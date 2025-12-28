@@ -197,6 +197,60 @@ root@admin-server:~# systemctl status docker
 #### Configure Pipeline from SCM
 _screenhot_
 
+#### Maven pom.xml Issue – How I Solved It
+##### Why the error occurred:
+The build failed because the project was using Java 1.6 and an old Maven compiler plugin (2.3.2), while Jenkins was running with Java 17. This Java version mismatch caused Maven compilation to fail.
+
+#### 🔍 Root Cause Analysis
+##### 1️. Existing Configuration (Wrong)
+##### Parent pom.xml
+```commandline
+<plugin>
+  <artifactId>maven-compiler-plugin</artifactId>
+  <configuration>
+    <source>1.6</source>
+    <target>1.6</target>
+  </configuration>
+</plugin>
+```
+##### pluginManagement
+```commandline
+<plugin>
+  <artifactId>maven-compiler-plugin</artifactId>
+  <version>2.3.2</version>
+</plugin>
+```
+##### Jenkins Configuration
+* Jenkins JDK: Java 17 
+* Maven compiler plugin 2.3.2 does not support Java 11/17
+
+#### Solution
+##### Step 1: Remove Old Compiler Plugin
+Removed the outdated plugin configuration using Java 1.6.
+
+##### Step 2: Add Correct Maven Compiler Plugin
+Added a modern compiler plugin compatible with Java 17.
+```commandline
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-compiler-plugin</artifactId>
+  <version>3.11.0</version>
+  <configuration>
+    <source>17</source>
+    <target>17</target>
+  </configuration>
+</plugin>
+```
+##### Step 3: Fix `pluginManagement`
+Updated the compiler plugin version so all child modules use the correct version.
+```commandline
+<plugin>
+  <artifactId>maven-compiler-plugin</artifactId>
+  <version>3.11.0</version>
+</plugin>
+```
+I removed the old compiler plugin configuration, upgraded the maven-compiler-plugin to version 3.11.0, and updated the source and target to Java 17 in both <build> and <pluginManagement> sections. After aligning the Java versions, the build succeeded.
+
 #### Build Failure: Permission Denied (Docker Build & Tag)
 During Build and Tag stage:
 ```commandline
