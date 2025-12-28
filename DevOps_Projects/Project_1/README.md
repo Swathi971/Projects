@@ -251,6 +251,19 @@ Updated the compiler plugin version so all child modules use the correct version
 ```
 I removed the old compiler plugin configuration, upgraded the maven-compiler-plugin to version 3.11.0, and updated the source and target to Java 17 in both <build> and <pluginManagement> sections. After aligning the Java versions, the build succeeded.
 
+#### SonarQube Startup Issue – Root Cause and Resolution
+**Issue**:
+
+SonarQube failed to start when accessed through the public IP on port 9000.
+
+**Root Cause**:
+
+SonarQube internally uses Elasticsearch, which requires sufficient system memory and supports only Java 11 or Java 17. Initially, the EC2 instance had limited resources, and the system was running Java 21, which is not supported by SonarQube 9.4. Due to this Java version mismatch and memory constraints, the SonarQube service could not start.
+
+**Resolution**:
+
+To fix the issue, I upgraded the EC2 instance to t2.medium to meet Elasticsearch memory requirements. Then, I installed OpenJDK 17 and explicitly configured the system to use Java 17 using `update-alternatives`. After aligning the Java version with SonarQube’s requirements, I restarted the SonarQube service, and it started successfully. The SonarQube dashboard became accessible via public IP:9000.
+
 #### Build Failure: Permission Denied (Docker Build & Tag)
 During Build and Tag stage:
 ```commandline
