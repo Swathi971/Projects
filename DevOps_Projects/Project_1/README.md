@@ -155,11 +155,15 @@ Manage Jenkins → Tools
 _Add 3 screenshots_
 #### Create SonarQube Token
 * SonarQube → My Account → Security → Generate Token
-![img.png](img.png)
-![img_1.png](img_1.png)
+<img src=".github/images/img.png" alt="sonarqube" width="60%"/>
+
+<img src=".github/images/img_1.png" alt="sonarqube" width="60%"/>
+
 #### Add Jenkins Credential
-![img_2.png](img_2.png)
-![img_3.png](img_3.png)
+<img src=".github/images/img_2.png" alt="sonarqube" width="60%"/>
+
+<img src=".github/images/img_3.png" alt="sonarqube" width="60%"/>
+
 * Type: Secret Text 
 * ID: ```sonarqube``` 
 * Value: Token
