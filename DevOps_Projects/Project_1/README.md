@@ -155,7 +155,11 @@ Manage Jenkins → Tools
 _Add 3 screenshots_
 #### Create SonarQube Token
 * SonarQube → My Account → Security → Generate Token
+![img.png](img.png)
+![img_1.png](img_1.png)
 #### Add Jenkins Credential
+![img_2.png](img_2.png)
+![img_3.png](img_3.png)
 * Type: Secret Text 
 * ID: ```sonarqube``` 
 * Value: Token
@@ -224,6 +228,7 @@ mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
 ```
 ##### Jenkins warning:
 I saw `Warning: A secret was passed using Groovy String interpolation`
+
 This is bad because secrets may appear in logs.
 
 ##### Correct Jenkins way:
@@ -236,12 +241,6 @@ mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
 ```
 The pipeline failed at SonarQube stage because the Sonar Maven plugin was not explicitly defined.
 I fixed it by using the fully qualified Sonar Maven plugin command, which is a best practice in Jenkins pipelines to avoid pom dependency changes.
-
-
-
-
-
-
 
 #### Configure Pipeline from SCM
 _screenhot_
