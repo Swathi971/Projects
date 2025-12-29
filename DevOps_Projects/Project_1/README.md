@@ -1,5 +1,5 @@
 ## CI pipeline for a Java application/ Continuous integration of a Java application
-#### 🔧 Tools Used
+### 🔧 Tools Used
 * **AWS EC2** – Hosting Jenkins, SonarQube, and Docker 
 * **Git & GitHub** – Source code version control 
 * **Jenkins** – CI pipeline automation 
@@ -74,8 +74,7 @@ Started SonarQube.
 ```
 * Port: 9000 (open in security group)
 * Login: admin / admin → old password is admin, change password to ```1234```
-
-_put image here_
+<img src=".github/images/img_5.png" alt="sonarqube" width="50%"/>
 
 ### 4. Install Docker
 ```commandline
@@ -152,7 +151,6 @@ Manage Jenkins → Tools
 * Maven: Name = ```maven```
 
 ### 7. SonarQube Integration with Jenkins
-_Add 3 screenshots_
 #### Create SonarQube Token
 * SonarQube → My Account → Security → Generate Token
 <img src=".github/images/img.png" alt="sonarqube" width="60%"/>
@@ -170,6 +168,11 @@ _Add 3 screenshots_
 
 ### 8. Docker Permission for Jenkins
 ```commandline
+root@admin-server:~# cat /etc/group
+```
+<img src=".github/images/img_4.png" alt="sonarqube" width="60%"/>
+
+```commandline
 root@admin-server:~# usermod  -aG docker jenkins
 root@admin-server:~# usermod  -aG docker ubuntu 
 root@admin-server:~# cat /etc/group | tail 
@@ -182,6 +185,9 @@ root@admin-server:~# systemctl status docker
 * Docker Hub → Account Settings → Security 
 * Token name: ```cli``` 
 * Permissions: Read, Write, Delete
+<img src=".github/images/img_6.png" alt="sonarqube" width="50%"/>
+
+<img src=".github/images/img_7.png" alt="sonarqube" width="50%"/>
 
 #### Add Jenkins Credential
 * Type: Username & Password 
@@ -189,10 +195,16 @@ root@admin-server:~# systemctl status docker
 * Username: ```swathi971``` 
 * Password: Access Token
 
+<img src=".github/images/img_8.png" alt="sonarqube" width="40%"/>
+
+<img src=".github/images/img_9.png" alt="sonarqube" width="40%"/>
+
 ### 10. Jenkins Pipeline Job Creation & Build Issue Resolution
 #### Push Jenkinsfile & Dockerfile from VS Code
 * Create a new Jenkinsfile & Dockerfile in VS Code 
 * Commit and push it to GitHub repository (```test-1```)
+
+<img src=".github/images/img_10.png" alt="sonarqube" width="60%"/>
 
 #### Create Jenkins Pipeline Job
 1. Open Jenkins Dashboard
@@ -201,6 +213,10 @@ root@admin-server:~# systemctl status docker
    * Job name: project-1-continuous-integration 
    * Type: Pipeline
 4. Click OK
+
+![img.png](img.png)
+
+![img_1.png](img_1.png)
 
 ##### Failure in the codescan (SonarQube) stage
 Error:
