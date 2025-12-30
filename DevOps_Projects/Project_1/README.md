@@ -751,6 +751,10 @@ pipeline {
 </project>
 ```
 ### Final Expected Outputs
+![img.png](img.png)
+
+![img_1.png](img_1.png)
+
 * Jenkins Pipeline: SUCCESS 
 * SonarQube: Code quality report visible 
 * Docker image pushed to Docker Hub 
@@ -758,6 +762,7 @@ pipeline {
 ```commandline
 http://<EC2-IP>:9003/webapp
 ```
+![img_2.png](img_2.png)
 
 
 
