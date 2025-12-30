@@ -185,7 +185,7 @@ root@admin-server:~# systemctl status docker
 * Docker Hub → Account Settings → Security 
 * Token name: ```cli``` 
 * Permissions: Read, Write, Delete
-<img src=".github/images/img_6.png" alt="sonarqube" width="50%"/>
+<img src=".github/images/img_6.png" alt="sonarqube" width="40%"/>
 
 <img src=".github/images/img_7.png" alt="sonarqube" width="40%"/>
 
@@ -200,13 +200,13 @@ root@admin-server:~# systemctl status docker
 <img src=".github/images/img_9.png" alt="sonarqube" width="50%"/>
 
 ### 10. Jenkins Pipeline Job Creation & Build Issue Resolution
-#### Push Jenkinsfile & Dockerfile from VS Code
+#### a) Push Jenkinsfile & Dockerfile from VS Code
 * Create a new Jenkinsfile & Dockerfile in VS Code 
 * Commit and push it to GitHub repository (```test-1```)
 
 <img src=".github/images/img_10.png" alt="sonarqube" width="60%"/>
 
-#### Create Jenkins Pipeline Job
+#### b) Create Jenkins Pipeline Job
 1. Open Jenkins Dashboard
 2. Click New Item
 3. Enter:
@@ -214,13 +214,13 @@ root@admin-server:~# systemctl status docker
    * Type: Pipeline
 4. Click OK
 
-#### Configure Pipeline from SCM
+#### c) Configure Pipeline from SCM
 <img src=".github/images/img_11.png" alt="sonarqube" width="50%"/>
 
 <img src=".github/images/img_12.png" alt="sonarqube" width="50%"/>
 
-##### Failure in the codescan (SonarQube) stage
-Error:
+#### d) Errors
+* ##### Failure in the codescan (SonarQube) stage
 ```commandline
 No plugin found for prefix 'sonar'
 ```
@@ -231,7 +231,7 @@ This means:
 
 but Maven does not know what `sonar` is
 
-**Solution:**
+##### Solution:
 
 Use fully qualified Sonar plugin instead of `sonar:sonar`
 
@@ -263,7 +263,7 @@ mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
 The pipeline failed at SonarQube stage because the Sonar Maven plugin was not explicitly defined.
 I fixed it by using the fully qualified Sonar Maven plugin command, which is a best practice in Jenkins pipelines to avoid pom dependency changes.
 
-#### Maven pom.xml Issue – How I Solved It
+* #### Maven pom.xml Issue – How I Solved It
 ##### Why the error occurred:
 The build failed because the project was using Java 1.6 and an old Maven compiler plugin (2.3.2), while Jenkins was running with Java 17. This Java version mismatch caused Maven compilation to fail.
 
@@ -290,7 +290,7 @@ The build failed because the project was using Java 1.6 and an old Maven compile
 * Jenkins JDK: Java 17 
 * Maven compiler plugin 2.3.2 does not support Java 11/17
 
-#### Solution
+##### Solution
 ##### Step 1: Remove Old Compiler Plugin
 Removed the outdated plugin configuration using Java 1.6.
 
@@ -317,9 +317,8 @@ Updated the compiler plugin version so all child modules use the correct version
 ```
 I removed the old compiler plugin configuration, upgraded the maven-compiler-plugin to version 3.11.0, and updated the source and target to Java 17 in both <build> and <pluginManagement> sections. After aligning the Java versions, the build succeeded.
 
-#### SonarQube Startup Issue – Root Cause and Resolution
-**Issue**:
-
+* #### SonarQube Startup Issue – Root Cause and Resolution
+##### Issue: 
 SonarQube failed to start when accessed through the public IP on port 9000.
 
 **Root Cause**:
@@ -330,7 +329,7 @@ SonarQube internally uses Elasticsearch, which requires sufficient system memory
 
 To fix the issue, I upgraded the EC2 instance to t2.medium to meet Elasticsearch memory requirements. Then, I installed OpenJDK 17 and explicitly configured the system to use Java 17 using `update-alternatives`. After aligning the Java version with SonarQube’s requirements, I restarted the SonarQube service, and it started successfully. The SonarQube dashboard became accessible via public IP:9000.
 
-#### Build Failure: Permission Denied (Docker Build & Tag)
+* #### Build Failure: Permission Denied (Docker Build & Tag)
 During Build and Tag stage:
 ```commandline
 permission denied while trying to connect to the Docker daemon
@@ -353,7 +352,7 @@ cat initialAdminPassword
 * Username: admin 
 * Password: (copied value)
 
-#### Error in stage pushing image to repository:
+* #### Error in stage pushing image to repository:
 ```commandline
 root@ip-10-0-19-162:/# docker push swathi971/webapp:1
 The push refers to repository [docker.io/swathi971/webapp]
@@ -372,12 +371,12 @@ authentication required - access token has insufficient scopes
 ##### solution:
 I was using a Docker Hub token with READ-ONLY scope
 I need to allow access permission as read, write and delete in Dockerhub while generating the token.
-### Step 1: Completely reset Docker login
+##### Step 1: Completely reset Docker login
 On the Jenkins server:
 ```commandline
 docker logout
 ```
-Step 2: Create a NEW Docker Hub Access Token
+##### Step 2: Create a NEW Docker Hub Access Token
 On Docker Hub website:
 * Login to Docker Hub
 * Click profile → Account Settings 
@@ -389,7 +388,7 @@ On Docker Hub website:
 
 ⚠️ Do NOT use an old token
 
-### Step 3: Login manually using the token
+##### Step 3: Login manually using the token
 On Jenkins server terminal:
 ```commandline
 docker login -u swathi971
@@ -405,7 +404,7 @@ Login Succeeded
 I debugged a Docker push failure caused by insufficient token scopes.
 I resolved it by regenerating a Docker Hub access token with write, read and delete permissions and validating authentication directly on the Jenkins host.
 
-### Wrong Docker Hub credentials in Jenkins
+* #### Wrong Docker Hub credentials in Jenkins
 Even one character mismatch causes this.
 * Go to Jenkins → Manage Jenkins → Credentials 
 * Open docker-hub-credentials 
@@ -434,7 +433,7 @@ When prompted for password:
 ```commandline
 Login Succeeded
 ```
-
+_You dont need to login manually. If error appears follow these steps. Otherwise Jenkins automatically login to Dockerhub._
 ### 11. Dockerfile (Tomcat Deployment)
 ```commandline
 FROM tomcat:latest
