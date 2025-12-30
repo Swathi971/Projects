@@ -203,6 +203,7 @@ root@admin-server:~# systemctl status docker
 #### a) Push Jenkinsfile & Dockerfile from VS Code
 * Create a new Jenkinsfile & Dockerfile in VS Code 
 * Commit and push it to GitHub repository (```test-1```)
+* Put the sonarQube URL in codescan stage
 
 <img src=".github/images/img_10.png" alt="sonarqube" width="60%"/>
 
@@ -267,7 +268,7 @@ I fixed it by using the fully qualified Sonar Maven plugin command, which is a b
 ##### Why the error occurred:
 The build failed because the project was using Java 1.6 and an old Maven compiler plugin (2.3.2), while Jenkins was running with Java 17. This Java version mismatch caused Maven compilation to fail.
 
-#### 🔍 Root Cause Analysis
+##### 🔍 Root Cause Analysis
 ##### 1️. Existing Configuration (Wrong)
 ##### Parent pom.xml
 ```commandline
@@ -290,7 +291,7 @@ The build failed because the project was using Java 1.6 and an old Maven compile
 * Jenkins JDK: Java 17 
 * Maven compiler plugin 2.3.2 does not support Java 11/17
 
-##### Solution
+##### Solution:
 ##### Step 1: Remove Old Compiler Plugin
 Removed the outdated plugin configuration using Java 1.6.
 
@@ -321,11 +322,11 @@ I removed the old compiler plugin configuration, upgraded the maven-compiler-plu
 ##### Issue: 
 SonarQube failed to start when accessed through the public IP on port 9000.
 
-**Root Cause**:
+##### Root Cause:
 
 SonarQube internally uses Elasticsearch, which requires sufficient system memory and supports only Java 11 or Java 17. Initially, the EC2 instance had limited resources, and the system was running Java 21, which is not supported by SonarQube 9.4. Due to this Java version mismatch and memory constraints, the SonarQube service could not start.
 
-**Resolution**:
+##### Resolution:
 
 To fix the issue, I upgraded the EC2 instance to t2.medium to meet Elasticsearch memory requirements. Then, I installed OpenJDK 17 and explicitly configured the system to use Java 17 using `update-alternatives`. After aligning the Java version with SonarQube’s requirements, I restarted the SonarQube service, and it started successfully. The SonarQube dashboard became accessible via public IP:9000.
 
