@@ -751,30 +751,26 @@ pipeline {
 </project>
 ```
 ### Final Expected Outputs
-![img.png](img.png)
+<img src=".github/images/img_13.png" alt="sonarqube" width="50%"/>
 
 ![img_1.png](img_1.png)
 
-* Jenkins Pipeline: SUCCESS 
-* SonarQube: Code quality report visible 
+* **Jenkins Pipeline**: SUCCESS 
+* **SonarQub**e: Code quality report visible 
 * Docker image pushed to Docker Hub 
 * Application accessible at:
 ```commandline
 http://<EC2-IP>:9003/webapp
 ```
-![img_2.png](img_2.png)
+![img_2.png](img_2.png) 
 
 
+Now go to configure: check gitscmpolling- apply save
+copy the url - http://184.73.6.246:8080
+![img_3.png](img_3.png)
+ go to Github repo test 1 - go to seetings - webhooks- add webhooks
+![img_4.png](img_4.png)
 
+![img_5.png](img_5.png)
 
-
-
-
-
-
-
-
-
-
-
-__________
+If a developer made some chnages in code( for example in index.html- folder webINF) DevOps engineer creates pipeline, pipeline will be automatically triggered, we do not need to click build manually.
