@@ -134,7 +134,7 @@ echo "The Docker version is $dockerVersion"
 root@admin-server:~# sh docker.sh 
 ```
 ### 5. Trivy Installation (Image Scanning)
-https://trivy.dev/docs/v0.61/getting-started/installation/#__tabbed_2_2
+[Trivy Installation](https://trivy.dev/docs/v0.61/getting-started/installation/#__tabbed_2_2)
 
 ```commandline
 wget https://github.com/aquasecurity/trivy/releases/download/v0.61.1/trivy_0.61.1_Linux-64bit.deb 
