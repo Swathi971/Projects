@@ -74,7 +74,7 @@ Started SonarQube.
 ```
 * Port: 9000 (open in security group)
 * Login: admin / admin → old password is admin, change password to ```1234```
-<img src=".github/images/img_5.png" alt="sonarqube" width="50%"/>
+<img src=".github/images/img_5.png" alt="sonarqube" width="40%"/>
 
 ### 4. Install Docker
 ```commandline
@@ -170,7 +170,7 @@ Manage Jenkins → Tools
 ```commandline
 root@admin-server:~# cat /etc/group
 ```
-<img src=".github/images/img_4.png" alt="sonarqube" width="60%"/>
+<img src=".github/images/img_4.png" alt="sonarqube" width="40%"/>
 
 ```commandline
 root@admin-server:~# usermod  -aG docker jenkins
@@ -187,7 +187,7 @@ root@admin-server:~# systemctl status docker
 * Permissions: Read, Write, Delete
 <img src=".github/images/img_6.png" alt="sonarqube" width="50%"/>
 
-<img src=".github/images/img_7.png" alt="sonarqube" width="50%"/>
+<img src=".github/images/img_7.png" alt="sonarqube" width="40%"/>
 
 #### Add Jenkins Credential
 * Type: Username & Password 
@@ -197,7 +197,7 @@ root@admin-server:~# systemctl status docker
 
 <img src=".github/images/img_8.png" alt="sonarqube" width="40%"/>
 
-<img src=".github/images/img_9.png" alt="sonarqube" width="40%"/>
+<img src=".github/images/img_9.png" alt="sonarqube" width="50%"/>
 
 ### 10. Jenkins Pipeline Job Creation & Build Issue Resolution
 #### Push Jenkinsfile & Dockerfile from VS Code
@@ -214,9 +214,10 @@ root@admin-server:~# systemctl status docker
    * Type: Pipeline
 4. Click OK
 
-![img.png](img.png)
+#### Configure Pipeline from SCM
+<img src=".github/images/img_11.png" alt="sonarqube" width="50%"/>
 
-![img_1.png](img_1.png)
+<img src=".github/images/img_12.png" alt="sonarqube" width="50%"/>
 
 ##### Failure in the codescan (SonarQube) stage
 Error:
@@ -261,9 +262,6 @@ mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
 ```
 The pipeline failed at SonarQube stage because the Sonar Maven plugin was not explicitly defined.
 I fixed it by using the fully qualified Sonar Maven plugin command, which is a best practice in Jenkins pipelines to avoid pom dependency changes.
-
-#### Configure Pipeline from SCM
-_screenhot_
 
 #### Maven pom.xml Issue – How I Solved It
 ##### Why the error occurred:
