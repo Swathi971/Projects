@@ -5,7 +5,7 @@ Deploy a static website on an AWS EC2 instance, using Apache web server, and hos
 ### Create VPC
 <img src=".github/images/img_1.png" alt="Create VPC 1" width="50%"/>  
 
-#### Enable DNS Hostnames:
+**Enable DNS Hostnames**:
 <img src=".github/images/img_4.png" alt="DNS Hostnames" width="500"/>
 
 ### Create 4 subnets  
