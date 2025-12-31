@@ -751,9 +751,9 @@ pipeline {
 </project>
 ```
 ### Final Expected Outputs
-<img src=".github/images/img_13.png" alt="sonarqube" width="50%"/>
+<img src=".github/images/img_13.png" alt="output" width="50%" height="50%"/>
 
-![img_1.png](img_1.png)
+<img src=".github/images/img_14.png" alt="output" width="50%" height="50%"/>
 
 * **Jenkins Pipeline**: SUCCESS 
 * **SonarQub**e: Code quality report visible 
@@ -761,9 +761,8 @@ pipeline {
 * Application accessible at:
 ```commandline
 http://<EC2-IP>:9003/webapp
-```
-![img_2.png](img_2.png) 
-
+``` 
+<img src=".github/images/img_15.png" alt="output" width="50%" height="50%"/>
 
 Now go to configure: check gitscmpolling- apply save
 copy the url - http://184.73.6.246:8080
