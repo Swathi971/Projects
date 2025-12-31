@@ -155,11 +155,11 @@ mv ./* /var/www/html/
 http://<EC2-public-IP>
 ``` 
 * Website is live!
-#### Result:
+### Result:
   Now, when you access your EC2 public IP in the browser, it will load your application.
 <img src=".github/images/img_18.png" alt="webapp" width="50%"/>
 ____
-##### Accessing App via Domain Instead of IP
+### Accessing App via Domain Instead of IP
   Steps to use a custom domain:
 1. Buy a Domain name from Hostinger
 2. Create a hosted zone
@@ -177,9 +177,9 @@ ____
 
 <img src=".github/images/img_21.png" alt="DNS records" width="50%"/>
 
-##### Access the App:
+#### Access the App:
 * Now the site is accessible at:  http://www.swathi-webapp.site 
-##### Summary:
+#### Summary:
 I deployed a static website on AWS EC2 using Apache. I cloned the code from GitHub using SSH, configured the Apache web root, and optionally connected a domain. This project showed my ability to manage cloud resources, web servers, Git, and secure access. 
 
 
