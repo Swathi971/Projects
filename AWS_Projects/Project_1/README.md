@@ -62,13 +62,13 @@ Deploy a static website on an AWS EC2 instance, using Apache web server, and hos
 
 ***
 
-##### Connecting Ec2 instance using SSH:
+#### Connecting Ec2 instance using SSH:
 * Used MobaXterm (PuTTY or terminal can be used) to connect. 
-##### Switch to root user:
+#### Switch to root user:
 ````commandline
 sudo su -
 ````
-##### Install Required Packages:
+#### Install Required Packages:
 * Updated packages:
 ```commandline
 apt update 
@@ -97,7 +97,7 @@ apt install git
 ```commandline
 apt install unzip
 ```
-#####  Configure GitHub SSH Access:
+####  Configure GitHub SSH Access:
 * Connect the local machine to GitHub using an SSH key. Now generate the SSH key pair (id_ed25519.pub):
 ````commandline
 cd .ssh/  
@@ -108,7 +108,7 @@ ssh-keygen
 ```commandline
 git clone git@github.com:Swathi971/Projects.git 
 ```
-##### Deploy the Website:
+#### Deploy the Website:
 * Move into the cloned Projects folder:
 ```commandline
 cd Projects/
@@ -136,7 +136,7 @@ css
 index.html  
 js
 ```
-##### Apache2 Default Directory:
+#### Apache2 Default Directory:
 * Apache2 serves web content from:
 ```commandline
 /var/www/html/
@@ -149,13 +149,13 @@ rm /var/www/html/index.html
 ```commandline
 mv ./* /var/www/html/
 ```
-##### Access the Website: 
+#### Access the Website: 
  * In a browser, visit: 
 ```commandline
 http://<EC2-public-IP>
 ``` 
 * Website is live!
-##### Result:
+#### Result:
   Now, when you access your EC2 public IP in the browser, it will load your application.
 <img src=".github/images/img_18.png" alt="webapp" width="50%"/>
 ____
