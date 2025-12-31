@@ -1,8 +1,8 @@
-# End-to-End Static Website Deployment on AWS EC2 Using Apache and GitHub
+## End-to-End Static Website Deployment on AWS EC2 Using Apache and GitHub
 
 #### Project Goal:
 Deploy a static website on an AWS EC2 instance, using Apache web server, and host the code in GitHub for version control. 
-## Create VPC
+### Create VPC
 <img src=".github/images/img_1.png" alt="Create VPC 1" width="50%"/>  
 
 ### Enable DNS Hostnames:
@@ -12,36 +12,37 @@ Deploy a static website on an AWS EC2 instance, using Apache web server, and hos
 * Create 2 public subnets in US East N.Verginea 1a and 2 private subnets in US N.Verginea 1b:
 <img src=".github/images/img_2.png" alt="Subnets" width="70%"/>
 
-#### Enable public IP address to both public subnets: 
+### Enable public IP address to both public subnets: 
 * Select the my-vpc→public-subnet1→ Actions→ Edit subnet settings→ select Enable auto-assign public IPv4 address. 
+
 <img src=".github/images/img_5.png" alt="Subnets" width="50%"/>
 
-##### Create Route tables: 
+### Create Route tables: 
 * Two route tables are needed; one is for private, and another is for public subnet. 
-##### creating route table for public subnet:
+### creating route table for public subnet:
 
 <img src=".github/images/img_6.png" alt="routetable" width="50%"/>
 
-##### Adding public subnets to the route table: 
+### Adding public subnets to the route table: 
 <img src=".github/images/img_7.png" alt="subnet association" width="50%"/>
 
 <img src=".github/images/img_8.png" alt="adding public subnets" width="50%"/>
 
-##### Creating route table for private subnet:
+### Creating route table for private subnet:
 <img src=".github/images/img_9.png" alt="adding public subnets" width="50%"/>
 
-##### Adding private subnets to the route table: 
+### Adding private subnets to the route table: 
 <img src=".github/images/img_10.png" alt="adding public subnets" width="50%"/>
 
-##### Creating an Internet gateway:
+### Creating an Internet gateway:
 <img src=".github/images/img_11.png" alt="adding public subnets" width="50%"/>
 
-##### Attach the created internet gateway to the VPC: 
+### Attach the created internet gateway to the VPC: 
 <img src=".github/images/img_12.png" alt="attaching igw" width="50%"/>
 
 <img src=".github/images/img_13.png" alt="attaching igw" width="50%"/>
 
-##### Configuring internet gateway to the public subnet:  
+### Configuring internet gateway to the public subnet:  
 <img src=".github/images/img_14.png" alt="configuring" width="50%"/>
 
 <img src=".github/images/img_15.png" alt="configuring" width="50%"/>
