@@ -48,16 +48,16 @@ Deploy a static website on an AWS EC2 instance, using Apache web server, and hos
 <img src=".github/images/img_15.png" alt="configuring" width="50%"/>
 
 ***
-#### Launch Ec2 instance
+### Launch Ec2 instance
      Name- My-Webapp 
      AMI- Ubuntu Server 24.04 LTS (HVM),EBS General Purpose (SSD) Volume Type
      Instance type- t2.micro
      key pair- choose the key pair
      Storage (volumes) 1 volume(s) - 8 GiB
-##### Select the VPC and public subnet in Network settings:
+### Select the VPC and public subnet in Network settings:
 <img src=".github/images/img_16.png" alt="configuring" width="50%"/>
 
-##### Create the Security group:
+### Create the Security group:
 <img src=".github/images/img_17.png" alt="configuring" width="50%"/>
 
 ***
