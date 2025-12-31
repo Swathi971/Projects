@@ -1,8 +1,8 @@
-## End-to-End Static Website Deployment on AWS EC2 Using Apache and GitHub
+# End-to-End Static Website Deployment on AWS EC2 Using Apache and GitHub
 
 #### Project Goal:
 Deploy a static website on an AWS EC2 instance, using Apache web server, and host the code in GitHub for version control. 
-### Create VPC
+## Create VPC
 <img src=".github/images/img_1.png" alt="Create VPC 1" width="50%"/>  
 
 ### Enable DNS Hostnames:
