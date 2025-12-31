@@ -74,7 +74,7 @@ Started SonarQube.
 ```
 * Port: 9000 (open in security group)
 * Login: admin / admin → old password is admin, change password to ```1234```
-<img alt="sonarqube" height="40%" src=".github/images/img_5.png" width="40%"/>
+<img alt="sonarqube" height="20%" src=".github/images/img_5.png" width="40%"/>
 
 ### 4. Install Docker
 ```commandline
